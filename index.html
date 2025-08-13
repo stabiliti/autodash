@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoDash AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      .widget-animate {
+        animation: fadeInScaleUp 0.5s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes fadeInScaleUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .loading-text-animate {
+        animation: fadeCycle 2.5s infinite ease-in-out;
+      }
+      @keyframes fadeCycle {
+          0%, 100% { opacity: 0; transform: translateY(5px); }
+          20%, 80% { opacity: 1; transform: translateY(0); }
+      }
+      .apollo-analysis-content h2 {
+        @apply text-xl font-bold text-slate-100 border-b border-slate-700 pb-3 mb-4 mt-6;
+      }
+      .apollo-analysis-content h3 {
+        @apply text-lg font-semibold text-slate-200 mt-5 mb-2;
+      }
+      .apollo-analysis-content p {
+        @apply text-slate-300 leading-relaxed;
+      }
+      .apollo-analysis-content ul {
+        @apply list-disc list-inside text-slate-300 space-y-2 pl-2;
+      }
+      .apollo-analysis-content li {
+        @apply relative pr-10; /* Make space for button */
+      }
+      .apollo-analysis-content li::marker {
+        @apply text-brand-cyan-400;
+      }
+      .apollo-analysis-content .copy-btn {
+        @apply absolute top-1/2 right-1 -translate-y-1/2 p-1.5 rounded-md text-slate-400 opacity-0 transition-opacity duration-200;
+      }
+       .apollo-analysis-content .copy-btn:hover {
+        @apply bg-slate-700 text-slate-200;
+      }
+      .apollo-analysis-content li:hover .copy-btn {
+        @apply opacity-100;
+      }
+      .apollo-analysis-content table {
+        @apply w-full my-4 text-sm border-collapse;
+      }
+      .apollo-analysis-content th, .apollo-analysis-content td {
+        @apply border border-slate-700 p-3 text-left align-top;
+      }
+      .apollo-analysis-content th {
+        @apply bg-slate-800 font-semibold text-slate-200;
+      }
+       /* Custom scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #475569; /* slate-600 */
+        border-radius: 10px;
+        border: 2px solid #1e293b; /* slate-800 */
+        background-clip: padding-box;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: #64748b; /* slate-500 */
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'brand-blue': {
+                '50': '#eff8ff',
+                '100': '#dff0ff',
+                '200': '#bce5ff',
+                '300': '#89d7ff',
+                '400': '#52c1ff',
+                '500': '#2babff',
+                '600': '#0d8eff',
+                '700': '#0077ee',
+                '800': '#0062c3',
+                '900': '#00519e',
+                '950': '#00305f',
+              },
+              'brand-cyan': {
+                '50': '#ecfeff',
+                '100': '#cffafe',
+                '200': '#a5f3fc',
+                '300': '#67e8f9',
+                '400': '#22d3ee',
+                '500': '#06b6d4',
+                '600': '#0891b2',
+                '700': '#0e7490',
+                '800': '#155e75',
+                '900': '#164e63',
+                '950': '#083344',
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Polyfill for process.env
+      var process = {
+        env: {
+          // This will be populated by the runtime environment.
+          // For local development, you might need to set this manually.
+          // e.g., API_KEY: "YOUR_GEMINI_API_KEY"
+        }
+      };
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.525.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.11.0",
+    "papaparse": "https://esm.sh/papaparse@^5.5.3",
+    "recharts": "https://esm.sh/recharts@^3.1.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "marked": "https://esm.sh/marked@^12.0.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-900 text-slate-200 antialiased">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

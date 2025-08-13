@@ -1,0 +1,6 @@
+{
+  "name": "AutoDash AI",
+  "description": "An AI-powered module that allows users to upload a CSV file and instantly receive a beautiful, intelligently organized, and interactive data analysis report. All data processing and analysis happens client-side.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
